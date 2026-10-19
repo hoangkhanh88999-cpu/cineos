@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: #090c11;
+  color: #e8eaed;
+  font-family: 'Inter', 'Be Vietnam Pro', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(138, 120, 255, 0.35);
+}
+
+/* CINEOS design system — locked from Module 01 spec */
+@layer components {
+  .cineos-card {
+    @apply rounded-xl border border-[#242c3a] bg-[#151a23];
+  }
+  .cineos-panel {
+    @apply rounded-xl border border-[#242c3a] bg-[#0f131a];
+  }
+  .cineos-input {
+    @apply w-full rounded-lg border border-[#242c3a] bg-[#0b0e13] px-3 py-2.5 text-sm text-gray-100 placeholder:text-gray-600 outline-none transition-colors focus:border-[#8a78ff]/60 focus:ring-1 focus:ring-[#8a78ff]/30;
+  }
+  .cineos-label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b95a7];
+  }
+  .cineos-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .cineos-btn-primary {
+    @apply cineos-btn bg-gradient-to-r from-[#8a78ff] to-[#5e9dff] text-white hover:brightness-110 active:scale-[0.98] shadow-[0_0_24px_rgba(138,120,255,0.25)];
+  }
+  .cineos-btn-ghost {
+    @apply cineos-btn border border-[#303a4b] text-gray-300 hover:border-[#4a5568] hover:bg-[#1b2130] hover:text-white;
+  }
+  .cineos-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-[#242c3a] px-2.5 py-1 text-[11px] font-medium text-[#8b95a7];
+  }
+  .ai-accent {
+    background: linear-gradient(90deg, #8a78ff, #5e9dff);
+  }
+  .ai-text {
+    background: linear-gradient(90deg, #a99dff, #7db1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* thin scrollbars */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(139, 149, 167, 0.25);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes cineos-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: cineos-fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes nova-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.nova-pulse {
+  animation: nova-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes nova-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.nova-orbit {
+  animation: nova-orbit 6s linear infinite;
+}
+.nova-orbit-fast {
+  animation: nova-orbit 2.4s linear infinite;
+}
+
+@keyframes cineos-shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background-size: 800px 100%;
+  animation: cineos-shimmer 1.4s infinite linear;
+}
+
+@keyframes status-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.status-blink {
+  animation: status-blink 2s ease-in-out infinite;
+}
